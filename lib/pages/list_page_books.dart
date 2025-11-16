@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:reading_list/models/book_model.dart';
 import 'package:reading_list/widgets/horizontal_line.dart';
+import 'package:reading_list/widgets/list_books.dart';
 
 class ListPageBooks extends StatefulWidget {
   const ListPageBooks({super.key});
@@ -41,38 +43,8 @@ class _ListPageBooksState extends State<ListPageBooks> {
                     ),
                   ),
                   HorizontalLine(),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    itemBuilder: (context, i) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 58.0),
-                        child: ListTile(
-                          title: Text(
-                            'Book Title $i',
-                            style: TextStyle(
-                              color: Color(0xFF334B4E),
-                              fontSize: 26,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          subtitle: Expanded(
-                            child: Text(
-                              'dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                              style: TextStyle(
-                                color: Color(0xFF334B4E),
-                                fontSize: 18,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          visualDensity: VisualDensity.compact,
-                          contentPadding: EdgeInsets.all(0),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, i) => HorizontalLine(),
-                    itemCount: 35,
-                  ),
+                  ListBooks(listBooks: listBooksMock,),
+                  HorizontalLine(),
                 ],
               ),
               Padding(
