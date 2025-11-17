@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reading_list/models/book_model.dart';
+import 'package:reading_list/pages/form_book_page.dart';
 import 'package:reading_list/widgets/horizontal_line.dart';
 import 'package:reading_list/widgets/list_books.dart';
 
@@ -35,7 +37,14 @@ class _ListPageBooksState extends State<ListPageBooks> {
                           ),
                         ),
                         FloatingActionButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed('/form');
+                            // .push(
+                            //   CupertinoPageRoute(
+                            //     builder: (_) => FormBookPage(),
+                            //   ),
+                            // );
+                          },
                           backgroundColor: Color(0xFF498C9A),
                           child: Icon(Icons.add, color: Colors.white),
                         ),
@@ -43,7 +52,7 @@ class _ListPageBooksState extends State<ListPageBooks> {
                     ),
                   ),
                   HorizontalLine(),
-                  ListBooks(listBooks: listBooksMock,),
+                  ListBooks(listBooks: listBooksMock),
                   HorizontalLine(),
                 ],
               ),

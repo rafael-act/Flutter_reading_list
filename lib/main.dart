@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reading_list/pages/form_book_page.dart';
 import 'package:reading_list/pages/list_page_books.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,13 +14,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.kalamTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        textTheme: GoogleFonts.kalamTextTheme(Theme.of(context).textTheme),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const ListPageBooks(),
+      routes: {
+        '/': (context) => const ListPageBooks(),
+        '/form': (context) => const FormBookPage(),
+      },
+      //home: const ListPageBooks(),
     );
   }
 }
